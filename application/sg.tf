@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "http" {
   to_port           = 8080
   protocol          = "tcp"
   from_port         = 8080
-  cidr_blocks       = ["188.211.163.126/32"]
+  cidr_blocks       = ["0.0.0.0/0"]
   description       = "ALB HTTP access"
   security_group_id = aws_security_group.alb.id
 }
