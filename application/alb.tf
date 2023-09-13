@@ -40,7 +40,7 @@ resource "aws_lb_target_group" "main" {
     path                = "/"
     matcher             = "200-399"
     timeout             = 30
-    interval            = 15
+    interval            = 10
     healthy_threshold   = 2
     unhealthy_threshold = 8
   }
