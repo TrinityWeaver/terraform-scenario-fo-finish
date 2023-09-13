@@ -3,7 +3,10 @@ variable "region" {
   default     = "eu-west-1"
   type        = string
 }
-
+variable "wordpress" {
+  description = "Map of Wordpress"
+  type        = map(number)
+}
 variable "prefix" {
   description = "The environment prefix"
   type        = string
