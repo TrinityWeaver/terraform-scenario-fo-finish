@@ -11,6 +11,9 @@ module "vpc" {
   private_subnets = var.private_subnets
 
 
+  enable_nat_gateway     = true
+  one_nat_gateway_per_az = true
+
   enable_dhcp_options      = true
   enable_dns_hostnames     = true
   dhcp_options_domain_name = var.dhcp_options_domain_name
