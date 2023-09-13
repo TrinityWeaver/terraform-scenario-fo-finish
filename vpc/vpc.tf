@@ -17,6 +17,9 @@ module "vpc" {
 
   map_public_ip_on_launch = false
 
+  enable_nat_gateway = true
+  one_nat_gateway_per_az = true
+
   nat_eip_tags = {
     "accessible" = "private"
   }
@@ -47,6 +50,7 @@ module "vpc" {
   }
 
   private_route_table_tags = {
+    "Name"       = "${var.prefix}-private-${var.region}"
     "accessible" = "private"
   }
 }
