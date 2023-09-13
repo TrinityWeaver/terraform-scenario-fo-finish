@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "http" {
   to_port           = 8080
   protocol          = "tcp"
   from_port         = 8080
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0"]
   description       = "ALB HTTP access"
   security_group_id = aws_security_group.alb.id
 }
@@ -49,7 +49,18 @@ resource "aws_security_group_rule" "alb_wordpress" {
   source_security_group_id = aws_security_group.alb.id
 }
 
+resource "aws_security_group" "rds" {
+  name   = "${local.name}-rds"
+  vpc_id = data.aws_vpc.main.id
 
+  # allow all egress
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 
 resource "aws_security_group_rule" "ingress_ecs" {

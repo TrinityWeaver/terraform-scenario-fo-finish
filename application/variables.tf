@@ -41,6 +41,10 @@ variable "rds" {
   type        = map(string)
 }
 
+variable "wordpress" {
+  description = "Map of variables used to task definition"
+  type        = map(string)
+}
 
 variable "rds_username" {
   description = "Map of variables used to provision RDS instance"
