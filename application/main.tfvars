@@ -1,6 +1,6 @@
 prefix = "test-interview"
 
-
+azs = ["uk-west-1a", "eu-west-1b"]
 
 cluster_name               = "test-cluster"
 capacity_provider          = ["FARGATE", "FARGATE_SPOT"]

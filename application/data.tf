@@ -22,3 +22,19 @@ data "aws_subnet" "public" {
     values = ["test-public-${var.azs[count.index]}"]
   }
 }
+
+data "aws_subnet" "private" {
+  count = length(var.azs)
+
+  vpc_id = data.aws_vpc.main.id
+
+  filter {
+    name   = "tag:accessible"
+    values = ["private"]
+  }
+
+  filter {
+    name   = "tag:Name"
+    values = ["test-private-${var.azs[count.index]}"]
+  }
+}

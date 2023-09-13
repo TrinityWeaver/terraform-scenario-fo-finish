@@ -12,6 +12,11 @@ data "aws_iam_policy_document" "assume" {
 
 # Execution Role
 
+resource "aws_iam_role" "exec" {
+  name_prefix        = "${local.name}-exec-"
+  assume_role_policy = data.aws_iam_policy_document.assume.json
+}
+
 resource "aws_iam_role_policy_attachment" "exec" {
   role       = aws_iam_role.exec.id
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
