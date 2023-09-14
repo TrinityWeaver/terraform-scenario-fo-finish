@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "assume" {
 
 # Execution Role
 resource "aws_iam_role" "exec" {
-  name_prefix = "${local.name}-exec-"
+  name_prefix        = "${local.name}-exec-"
   assume_role_policy = data.aws_iam_policy_document.assume.json
 }
 

@@ -13,13 +13,13 @@ data "aws_subnet" "private" {
   vpc_id = data.aws_vpc.main.id
 
   filter {
-    name = "tag:accessible"
+    name   = "tag:accessible"
     values = ["private"]
   }
 
   filter {
-    name = "tag:Name"
-    values= ["test-private-${var.azs[count.index]}"]
+    name   = "tag:Name"
+    values = ["test-private-${var.azs[count.index]}"]
   }
 }
 data "aws_subnet" "public" {
