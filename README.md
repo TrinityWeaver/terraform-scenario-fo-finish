@@ -2,10 +2,11 @@
 
 All errors have been fixed, and all componets have been successfully deployed, i.e the infrastructure and the application. And the working application can be accessed [here](http://test-alb-1383658882.eu-west-1.elb.amazonaws.com:8080/).
 
-![Login page](terraform-scenario-fo-finish/imgs/wp-login.png)
+![Login page](imgs/wp-login.png)
 
 
-![Database verification page](terraform-scenario-fo-finish/imgs/wp-db.png)
+
+![Database verification page](imgs/wp-db.png)
 
 This guide will walk you through the process of cloning the repository and running it on your local machine.
 
