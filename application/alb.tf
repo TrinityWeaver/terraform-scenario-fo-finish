@@ -31,16 +31,17 @@ resource "aws_lb_target_group" "main" {
   name                 = "${local.name}-tg"
   port                 = 80
   vpc_id               = data.aws_vpc.main.id
-  protocol             = "HTTPS"
+  protocol             = "HTTP" # changed protocol to HTTP as HTTPS works for NLB and not ALB
   slow_start           = 0
   target_type          = "ip"
   deregistration_delay = 10
 
   health_check {
     path                = "/"
+    port                = 80
     matcher             = "200-399"
     timeout             = 10
-    interval            = 15
+    interval            = 30
     healthy_threshold   = 2
     unhealthy_threshold = 8
   }
